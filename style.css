@@ -1,0 +1,810 @@
+/* ==========================================================================
+   廖祤歆 (Liao Yu-Xin) - 萌萌可愛風個人網站 樣式表 (Kawaii Design System)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
+:root {
+  /* 可愛粉彩主題色系 */
+  --primary-pink: #ff8fa3;
+  --primary-pink-dark: #ff4d6d;
+  --primary-pink-light: #ffccd5;
+  --secondary-purple: #c77dff;
+  --accent-lavender: #e0aaff;
+  --accent-mint: #80ed99;
+  --accent-cyan: #70e0d8;
+  --accent-yellow: #ffea00;
+  --pastel-yellow: #fffae0;
+  --pastel-bg: #fff5f7;
+  --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #f7e8ff 50%, #e8f9ff 100%);
+  
+  --text-main: #3d2c3e;
+  --text-sub: #6c5a70;
+  --text-muted: #9c8a9e;
+
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(255, 255, 255, 0.95);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  
+  --shadow-kawaii: 0 12px 32px rgba(255, 143, 163, 0.22);
+  --shadow-hover: 0 20px 40px rgba(255, 120, 150, 0.32);
+  --shadow-sm: 0 6px 16px rgba(108, 90, 112, 0.08);
+
+  --radius-lg: 32px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+  --radius-pill: 50px;
+
+  --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-smooth: all 0.3s ease;
+}
+
+/* 暗色萌系模式變數 */
+[data-theme="dark"] {
+  --pastel-bg: #1e1926;
+  --bg-gradient: linear-gradient(135deg, #1f1a28 0%, #291a33 50%, #152636 100%);
+  --text-main: #f5ebf7;
+  --text-sub: #d3c4d8;
+  --text-muted: #a392a8;
+  --card-bg: rgba(36, 28, 48, 0.85);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --shadow-kawaii: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 20px 40px rgba(239, 138, 203, 0.25);
+}
+
+/* 全域重置與基礎 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Zen Maru Gothic', 'Noto Sans TC', 'Fredoka', sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* 浮動動態背景粒子容器 */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 頂部導覽列 (Kawaii Navbar) */
+.navbar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 1100px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius-pill);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  z-index: 100;
+  transition: var(--transition-bounce);
+}
+
+.navbar:hover {
+  box-shadow: var(--shadow-kawaii);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+
+.nav-brand .brand-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-purple));
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(255, 143, 163, 0.4);
+  animation: floatBounce 3s ease-in-out infinite;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-sub);
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-bounce);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-pink-dark);
+  background: rgba(255, 143, 163, 0.15);
+  transform: translateY(-2px);
+}
+
+.theme-toggle-btn {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-pink-light);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: var(--transition-bounce);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.15) rotate(15deg);
+  background: var(--primary-pink-light);
+}
+
+/* 主容器卡片樣式 */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section 通用風格 */
+.section {
+  padding: 90px 0 50px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #fff0f5, #f3e8ff);
+  border: 2px solid var(--primary-pink-light);
+  color: var(--primary-pink-dark);
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary-pink), var(--secondary-purple));
+  border-radius: 10px;
+  margin: 12px auto 0;
+}
+
+/* Hero 首頁主視覺區塊 */
+.hero-section {
+  min-height: 100vh;
+  padding-top: 130px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-avatar-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-halo {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 143, 163, 0.4) 0%, rgba(199, 125, 255, 0.2) 60%, transparent 80%);
+  animation: pulseGlow 4s infinite alternate ease-in-out;
+  z-index: 0;
+}
+
+.avatar-card {
+  position: relative;
+  z-index: 1;
+  background: var(--card-bg);
+  border: 4px solid #ffffff;
+  border-radius: 40px;
+  padding: 16px;
+  box-shadow: var(--shadow-kawaii);
+  transition: var(--transition-bounce);
+}
+
+.avatar-card:hover {
+  transform: translateY(-8px) rotate(-1.5deg);
+  box-shadow: var(--shadow-hover);
+}
+
+.avatar-img {
+  width: 290px;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 30px;
+  display: block;
+}
+
+/* 可愛浮動標籤卡片 */
+.floating-tag {
+  position: absolute;
+  background: var(--card-bg);
+  border: 2px solid var(--primary-pink-light);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  animation: floatBounce 4s ease-in-out infinite;
+}
+
+.tag-1 { top: -10px; right: 10px; animation-delay: 0s; }
+.tag-2 { bottom: 20px; left: -15px; animation-delay: 1.5s; }
+.tag-3 { bottom: -15px; right: 20px; animation-delay: 0.8s; }
+
+.hero-content {
+  padding-left: 10px;
+}
+
+.hero-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-pink-dark);
+  background: rgba(255, 143, 163, 0.12);
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+}
+
+.hero-name {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--primary-pink-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-typing-box {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--secondary-purple);
+  margin-bottom: 24px;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.3em;
+  background-color: var(--primary-pink-dark);
+  margin-left: 4px;
+  animation: blink 0.8s infinite;
+}
+
+.hero-bio {
+  font-size: 1.05rem;
+  color: var(--text-sub);
+  margin-bottom: 30px;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--primary-pink-light);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* 可愛按鈕元件 (Kawaii Buttons) */
+.btn-kawaii {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+  font-size: 1.02rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-pink), var(--primary-pink-dark));
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(255, 77, 109, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 14px 28px rgba(255, 77, 109, 0.45);
+}
+
+.btn-secondary {
+  background: var(--card-bg);
+  color: var(--text-main);
+  border: 2px solid var(--primary-pink-light);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-pink-light);
+  color: var(--primary-pink-dark);
+  transform: translateY(-4px) scale(1.04);
+}
+
+/* 關於我 (About Me Section) */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.kawaii-card {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-kawaii);
+  transition: var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+}
+
+.kawaii-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-icon-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #fff0f5, #e8d7ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+.card-text {
+  color: var(--text-sub);
+  font-size: 0.98rem;
+}
+
+.info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--primary-pink-light);
+}
+
+.info-item span.icon {
+  font-size: 1.2rem;
+}
+
+/* 核心能力與智光商工學習成果 (Skills Section) */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.skill-card {
+  text-align: center;
+  padding: 28px 20px;
+}
+
+.skill-card .card-icon-badge {
+  margin: 0 auto 16px;
+}
+
+.skill-level-bar {
+  width: 100%;
+  height: 12px;
+  background: #f0e6f2;
+  border-radius: 20px;
+  margin-top: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-pink), var(--secondary-purple));
+  border-radius: 20px;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 🔤 打字指法練習互動體驗卡 (Interactive Typing Widget) */
+.typing-game-box {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(247, 232, 255, 0.95));
+  border: 3px solid var(--primary-pink-light);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-kawaii);
+  margin-top: 30px;
+  text-align: center;
+}
+
+.typing-target-word {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--primary-pink-dark);
+  background: #ffffff;
+  padding: 16px 28px;
+  border-radius: var(--radius-md);
+  display: inline-block;
+  margin: 16px 0;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 2px dashed var(--secondary-purple);
+}
+
+.typing-input-field {
+  width: 100%;
+  max-width: 450px;
+  padding: 14px 24px;
+  font-size: 1.2rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--primary-pink);
+  outline: none;
+  font-family: inherit;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.typing-input-field:focus {
+  border-color: var(--secondary-purple);
+  box-shadow: 0 0 16px rgba(199, 125, 255, 0.4);
+}
+
+.typing-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.stat-pill {
+  background: var(--card-bg);
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--text-sub);
+  border: 1px solid var(--primary-pink-light);
+}
+
+.stat-pill span {
+  color: var(--primary-pink-dark);
+  font-size: 1.1rem;
+}
+
+/* 時間軸藍圖 (Timeline Section) */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary-pink), var(--secondary-purple));
+  border-radius: 10px;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  width: 50%;
+  padding: 0 30px;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 20px;
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border: 4px solid var(--primary-pink-dark);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.timeline-item.left .timeline-dot { right: -16px; }
+.timeline-item.right .timeline-dot { left: -16px; }
+
+.timeline-content {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--card-border);
+  box-shadow: var(--shadow-kawaii);
+  transition: var(--transition-bounce);
+}
+
+.timeline-content:hover {
+  transform: scale(1.03);
+}
+
+.timeline-date {
+  display: inline-block;
+  background: var(--primary-pink-light);
+  color: var(--primary-pink-dark);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+/* 萌萌互動與聯絡卡 (Interactive Corner & Postcard Contact) */
+.postcard-box {
+  background: #ffffff;
+  border: 4px dashed var(--primary-pink);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-kawaii);
+  position: relative;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.postcard-stamp {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 70px;
+  height: 80px;
+  border: 2px dashed var(--secondary-purple);
+  background: var(--pastel-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  border-radius: 8px;
+  transform: rotate(6deg);
+}
+
+.stamp-text {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--secondary-purple);
+  margin-top: 2px;
+}
+
+.interactive-cheer-btn {
+  background: linear-gradient(135deg, #ffea00, #ff9e00);
+  color: #3d2c3e;
+  border: none;
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
+  font-size: 1.1rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 158, 0, 0.4);
+  transition: var(--transition-bounce);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.interactive-cheer-btn:hover {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 12px 28px rgba(255, 158, 0, 0.5);
+}
+
+/* 頁尾 (Footer) */
+.footer {
+  text-align: center;
+  padding: 40px 0 30px;
+  margin-top: 60px;
+  color: var(--text-sub);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.footer-heart {
+  color: var(--primary-pink-dark);
+  display: inline-block;
+  animation: heartPulse 1.2s infinite;
+}
+
+/* 動畫定義 (Keyframe Animations) */
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  100% { transform: scale(1.1); opacity: 0.85; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+/* 響應式適應 (Responsive Design) */
+@media (max-width: 868px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero-content {
+    padding-left: 0;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-typing-box {
+    justify-content: center;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 0;
+  }
+
+  .timeline-item.left, .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline-item.left .timeline-dot, .timeline-item.right .timeline-dot {
+    left: 4px;
+  }
+
+  .postcard-stamp {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 0 auto 20px;
+  }
+}

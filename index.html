@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="廖祤歆 (Liao Yu-Xin) 的個人自我介紹網站。現就讀安溪國中，熱愛商業經營、電子商務與智慧科技，於智光商工課程努力學習打字指法與網頁開發，期許成為全方位數位商管跨領域人才！">
+  <meta name="keywords" content="廖祤歆, 安溪國中, 智光商工, 商業經營, 電子商務, 智慧科技, 網頁開發, 打字指法">
+  <title>廖祤歆 Liao Yu-Xin ✨ 萌萌自我介紹網站</title>
+  
+  <!-- Style & Fonts -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+<body>
+
+  <!-- 動態浮動背景粒子 Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- 頂部 Kawaii 導覽列 -->
+  <header>
+    <nav class="navbar" id="navbar">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-icon">🎀</span>
+        <span>祤歆 Yu-Xin</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active">🏠 首頁</a></li>
+        <li><a href="#about" class="nav-link">💖 關於我</a></li>
+        <li><a href="#skills" class="nav-link">📚 學習與技能</a></li>
+        <li><a href="#vision" class="nav-link">🌟 未來願景</a></li>
+        <li><a href="#contact" class="nav-link">💌 互動留言</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切換主題">☀️</button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. Hero 主視覺區塊 -->
+    <section class="section hero-section" id="hero">
+      <div class="hero-grid">
+        <div class="hero-avatar-wrapper">
+          <div class="avatar-halo"></div>
+          <div class="avatar-card">
+            <!-- Q版個人頭像 -->
+            <img src="q_avatar.png" alt="廖祤歆 Q版可愛圖像" class="avatar-img">
+            <div class="floating-tag tag-1">🏫 安溪國中</div>
+            <div class="floating-tag tag-2">⌨️ 打字指法達人</div>
+            <div class="floating-tag tag-3">✨ 數位商管新星</div>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-subtitle">
+            <span>🌸</span> Hello！歡迎來到我的個人小天地！
+          </div>
+          <h1 class="hero-name">我是 廖祤歆 👋</h1>
+          
+          <div class="hero-typing-box">
+            <span id="typewriter-text"></span>
+            <span class="typing-cursor"></span>
+          </div>
+
+          <p class="hero-bio">
+            現就讀安溪國中。我對<strong>商業經營</strong>、<strong>電子商務</strong>與<strong>智慧科技</strong>充滿熱情與好奇！在智光商工的課程中，我正努力學習打字指法與網頁開發，期待自己能一步步成長為全方位的數位商管跨領域人才！🌟
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#about" class="btn-kawaii btn-primary">了解更多我 💖</a>
+            <a href="#skills" class="btn-kawaii btn-secondary">查看課程與專長 📚</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 關於我 (About Me) -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <span class="section-badge">✨ ABOUT ME ✨</span>
+        <h2 class="section-title">關於 廖祤歆</h2>
+      </div>
+
+      <div class="about-grid">
+        <!-- 卡片 1: 學習背景 -->
+        <div class="kawaii-card">
+          <div class="card-icon-badge">🎒</div>
+          <h3 class="card-title">學習背景</h3>
+          <p class="card-text">
+            我是廖祤歆，目前就讀於<strong>安溪國中</strong>。在國中階段除了吸收豐富的基礎學科知識外，也積極拓展跨領域專長！
+          </p>
+          <ul class="info-list">
+            <li class="info-item"><span class="icon">🏫</span> 目前就讀：安溪國中</li>
+            <li class="info-item"><span class="icon">🎓</span> 合作課程：智光商工資料處理與科技課程</li>
+          </ul>
+        </div>
+
+        <!-- 卡片 2: 興趣與熱情 -->
+        <div class="kawaii-card">
+          <div class="card-icon-badge">🛍️</div>
+          <h3 class="card-title">興趣與專長方向</h3>
+          <p class="card-text">
+            對現代商業世界的變革充滿興趣！特別渴望探索電子商務與智慧科技如何改變我們的生活。
+          </p>
+          <ul class="info-list">
+            <li class="info-item"><span class="icon">📈</span> 商業經營與行銷新思維</li>
+            <li class="info-item"><span class="icon">🛒</span> 電子商務與線上平台發展</li>
+            <li class="info-item"><span class="icon">🤖</span> 智慧科技與 AI 創新應用</li>
+          </ul>
+        </div>
+
+        <!-- 卡片 3: 座右銘與願景 -->
+        <div class="kawaii-card">
+          <div class="card-icon-badge">🚀</div>
+          <h3 class="card-title">座右銘與目標</h3>
+          <p class="card-text">
+            「踏實學習每一項技能，用心感受每一次成長！」期許自己不斷跨界學習，成為數位時代的全方位人才。
+          </p>
+          <ul class="info-list">
+            <li class="info-item"><span class="icon">💪</span> 態度：認真踏實、勇於探索</li>
+            <li class="info-item"><span class="icon">🎯</span> 願景：全方位數位商管跨領域人才</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 學習與技能專長 (Skills & Zhiguang Courses) -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <span class="section-badge">💻 SKILLS & LEARNING 💻</span>
+        <h2 class="section-title">智光商工課程與學習成果</h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- 技能卡片 1 -->
+        <div class="kawaii-card skill-card">
+          <div class="card-icon-badge">⌨️</div>
+          <h3 class="card-title">打字指法與速度</h3>
+          <p class="card-text">在智光商工課程中，精準掌握標準打字指法，大幅提升打字速度與正確率。</p>
+          <div class="skill-level-bar">
+            <div class="skill-progress" style="width: 90%;"></div>
+          </div>
+        </div>
+
+        <!-- 技能卡片 2 -->
+        <div class="kawaii-card skill-card">
+          <div class="card-icon-badge">🌐</div>
+          <h3 class="card-title">網頁開發基礎</h3>
+          <p class="card-text">學習 HTML5/CSS3 與基礎網頁結構設計，親自打造專屬美觀網站。</p>
+          <div class="skill-level-bar">
+            <div class="skill-progress" style="width: 85%;"></div>
+          </div>
+        </div>
+
+        <!-- 技能卡片 3 -->
+        <div class="kawaii-card skill-card">
+          <div class="card-icon-badge">📊</div>
+          <h3 class="card-title">商業經營基礎</h3>
+          <p class="card-text">理解商業運作模式、企業經營概念與數位行銷的基本邏輯。</p>
+          <div class="skill-level-bar">
+            <div class="skill-progress" style="width: 80%;"></div>
+          </div>
+        </div>
+
+        <!-- 技能卡片 4 -->
+        <div class="kawaii-card skill-card">
+          <div class="card-icon-badge">🤖</div>
+          <h3 class="card-title">智慧科技應用</h3>
+          <p class="card-text">關注最新智慧科技與電子商務工具，活用數位科技解決問題。</p>
+          <div class="skill-level-bar">
+            <div class="skill-progress" style="width: 88%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔤 打字指法練習互動體驗小元件 (Interactive Typing Test Game) -->
+      <div class="typing-game-box">
+        <h3>⌨️ 智光商工打字指法 - 萌萌打字挑戰體驗區 🎮</h3>
+        <p style="color: var(--text-sub); margin-top: 8px;">快來體驗看看祤歆平時練習的打字詞彙吧！輸入正確即可賺取可愛愛心與分數！</p>
+        
+        <div class="typing-target-word" id="typing-target">business</div>
+        <p id="typing-tip" style="font-size: 0.95rem; color: var(--secondary-purple); font-weight: 700;">💡 指法提示：準備好輸入囉！</p>
+        
+        <div style="margin-top: 16px;">
+          <input type="text" id="typing-input" class="typing-input-field" placeholder="點擊這裡開始打字..." autocomplete="off">
+        </div>
+
+        <div class="typing-stats">
+          <div class="stat-pill">✨ 得分：<span id="typing-score">0</span> 分</div>
+          <div class="stat-pill">🚀 預估速度：<span id="typing-wpm">0</span> WPM</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 未來願景 (Vision & Timeline) -->
+    <section class="section" id="vision">
+      <div class="section-header">
+        <span class="section-badge">🌟 FUTURE ROADMAP 🌟</span>
+        <h2 class="section-title">未來願景與成長藍圖</h2>
+      </div>
+
+      <div class="timeline">
+        <!-- 階段 1 -->
+        <div class="timeline-item left">
+          <div class="timeline-dot">🎒</div>
+          <div class="timeline-content">
+            <span class="timeline-date">現在 📍 安溪國中</span>
+            <h3 class="card-title">築基奠定學業基礎</h3>
+            <p class="card-text">在安溪國中認真學習各學科，並踴躍參加智光商工合作課程，精進打字指法與網頁開發能力。</p>
+          </div>
+        </div>
+
+        <!-- 階段 2 -->
+        <div class="timeline-item right">
+          <div class="timeline-dot">💻</div>
+          <div class="timeline-content">
+            <span class="timeline-date">近程目標 🎯 深入商管與科技</span>
+            <h3 class="card-title">深化電子商務與程式開發</h3>
+            <p class="card-text">深化商業經營觀念，學習進階電子商務經營策略與數位行銷實務，累積實務作品。</p>
+          </div>
+        </div>
+
+        <!-- 階段 3 -->
+        <div class="timeline-item left">
+          <div class="timeline-dot">✨</div>
+          <div class="timeline-content">
+            <span class="timeline-date">遠程願景 🚀 跨領域專業人才</span>
+            <h3 class="card-title">全方位數位商管跨領域人才</h3>
+            <p class="card-text">融合智慧科技與商業經營，將網頁開發、電商營運與創新科技結合，迎向數位時代的無限可能！</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 互動留言明信片 (Interactive Contact Section) -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <span class="section-badge">💌 CONTACT & CHEERS 💌</span>
+        <h2 class="section-title">給祤歆加油打氣！</h2>
+      </div>
+
+      <div class="postcard-box">
+        <div class="postcard-stamp">
+          🌸
+          <span class="stamp-text">LOVE</span>
+        </div>
+
+        <h3 class="card-title" style="text-align: center; margin-bottom: 16px;">📮 感謝您的蒞臨與支持！</h3>
+        <p class="card-text" style="text-align: center; max-width: 550px; margin: 0 auto 20px;">
+          非常感謝您瀏覽廖祤歆的自我介紹網站！如果您想鼓勵我，歡迎點擊下方萌萌按鈕為我加油打氣喔！
+        </p>
+
+        <div style="text-align: center;">
+          <button class="interactive-cheer-btn" id="cheer-btn">
+            <span>💖 為祤歆加油打氣！(集星：<span id="cheer-count">520</span> 🌟)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 (Footer) -->
+  <footer class="footer">
+    <p>© 2026 廖祤歆 (Liao Yu-Xin). All Rights Reserved.</p>
+    <p style="margin-top: 6px;">Designed with <span class="footer-heart">💖</span> for Anxi Junior High & Zhiguang High School Courses.</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
